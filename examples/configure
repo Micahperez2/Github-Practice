@@ -1,0 +1,2 @@
+CXX=g++     # C++ compiler
+CXXFLAGS=-g # C++ compiler flags
