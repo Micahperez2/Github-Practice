@@ -1,0 +1,26 @@
+name: Build
+
+on: 
+  push:
+    branchs: [ main ]
+  pull_request:
+    branchs: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build
+    runs_on: ubuntu_latest
+    steps:
+      - uses: actions/checkout@v2
+    - name: install clang-tidy
+    run: |
+      sudo apt-get update -y
+      sudo apt-get install -y clang-tidy
+    - name: run linter
+      uses: github/super-linter@v4
+
+    - name: configure
+    run: ./configure
+    - name: make
+  
